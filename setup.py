@@ -63,6 +63,8 @@ with open('CHANGES.rst') as history_file:
     history = history_file.read().replace('.. :changes:', '')
 
 requirements = [
+    'click>=5.0.0',
+    'mock>=1.3.0',
 ]
 
 test_requirements = [
@@ -94,6 +96,11 @@ setup(
     author="Invenio Collaboration",
     author_email='info@invenio-software.org',
     url='https://github.com/inveniosoftware/requirements-builder',
+    entry_points={
+        'console_scripts': [
+            "requirements-builder = requirements_builder.cli:cli"
+        ]
+    },
     packages=[
         'requirements_builder',
     ],
